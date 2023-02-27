@@ -195,22 +195,30 @@
                                     <td>
                                         <h6 class="text-muted pl-20 pr-20">x {{item.quantity }}</h6>
                                     </td>
-                                    <td>
-                                        <h4 class="text-brand">{{request.session.currency}}{% widthratio item.price|currency:request.session.currency  1 item.quantity%}</h4>
-                                    </td>
+
+                                    {% comment %} Hide Price
+                                        <td>
+                                            <h4 class="text-brand">{{request.session.currency}}{% widthratio item.price|currency:request.session.currency  1 item.quantity%}</h4>
+                                        </td> 
+                                    {% endcomment %}
+
                                 </tr>
                                 {%endfor%}
-                                <tr>
-                                    <td class="image product-thumbnail"></td>
-                                    <td>
-                                        <h6 class="w-160 mb-5"><a class="text-heading">Subtotal</a></h6></span>
-                                       
-                                    </td>
-                                   
-                                    <td>
-                                        <h4 class="text-brand">{{request.session.currency}}{{order.sub_total|currency:request.session.currency}}</h4>
-                                    </td>
-                                </tr>
+
+                                {% comment %} Hide Price
+                                    <tr>
+                                        <td class="image product-thumbnail"></td>
+                                        <td>
+                                            <h6 class="w-160 mb-5"><a class="text-heading">Subtotal</a></h6></span>
+                                        
+                                        </td>
+                                    
+                                        <td>
+                                            <h4 class="text-brand">{{request.session.currency}}{{order.sub_total|currency:request.session.currency}}</h4>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
+
                                 <tr>
                                     <td class="image product-thumbnail"></td>
                                     <td>
@@ -236,42 +244,54 @@
 
 
                                 {% if order.coupon%}
-                                <tr>
-                                    <td class="image product-thumbnail"></td>
-                                    <td>
-                                        <h6 class="w-160 mb-5"><a  class="text-heading">Coupon({{order.coupon}})</a></h6></span>
-                                       
-                                    </td>
-                                   
-                                    <td>
-                                        <h5 class="text-brand">-{{request.session.currency}}{{order.discount|floatformat:"2"|currency:request.session.currency}}</h5>
-                                    </td>
-                                </tr>
+
+                                {% comment %} Hide Price
+                                    <tr>
+                                        <td class="image product-thumbnail"></td>
+                                        <td>
+                                            <h6 class="w-160 mb-5"><a  class="text-heading">Coupon({{order.coupon}})</a></h6></span>
+                                        
+                                        </td>
+                                    
+                                        <td>
+                                            <h5 class="text-brand">-{{request.session.currency}}{{order.discount|floatformat:"2"|currency:request.session.currency}}</h5>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
+
                                 {%endif%}
                                 {%if order.shipping%}
-                                <tr>
-                                    <td class="image product-thumbnail"></td>
-                                    <td>
-                                        <h6 class="w-160 mb-5"><a  class="text-heading">Shipping</a></h6></span>
-                                       
-                                    </td>
-                                   
-                                    <td>
-                                        <h4 class="text-brand">+{{request.session.currency}}{{order.shipping|floatformat:"2"|currency:request.session.currency}}</h4>
-                                    </td>
-                                </tr>
+
+                                {% comment %} Hide Price
+                                    <tr>
+                                        <td class="image product-thumbnail"></td>
+                                        <td>
+                                            <h6 class="w-160 mb-5"><a  class="text-heading">Shipping</a></h6></span>
+                                        
+                                        </td>
+                                    
+                                        <td>
+                                            <h4 class="text-brand">+{{request.session.currency}}{{order.shipping|floatformat:"2"|currency:request.session.currency}}</h4>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
+
                                 {%endif%}
-                                <tr>
-                                    <td class="image product-thumbnail"></td>
-                                    <td>
-                                        <h6 class="w-160 mb-5"><a  class="text-heading">Total</a></h6></span>
-                                       
-                                    </td>
-                                   
-                                    <td>
-                                        <h4 class="text-brand">{{request.session.currency}}{{order.amount|floatformat:"2"|currency:request.session.currency}}</h4>
-                                    </td>
-                                </tr>
+
+                                {% comment %} 
+                                    <tr>
+                                        <td class="image product-thumbnail"></td>
+                                        <td>
+                                            <h6 class="w-160 mb-5"><a  class="text-heading">Total</a></h6></span>
+                                        
+                                        </td>
+                                    
+                                        <td>
+                                            <h4 class="text-brand">{{request.session.currency}}{{order.amount|floatformat:"2"|currency:request.session.currency}}</h4>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
+                                
                             </tbody>
                         </table>
                     </div>

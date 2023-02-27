@@ -8,7 +8,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{% url 'home:index' %}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Store <span></span> Nest Food
+                <span></span> Store <span></span> {{vendor_detail.display_name}}
             </div>
         </div>
     </div>
@@ -186,10 +186,10 @@
                                         </div>
                                         <div class="product-card-bottom">
                                             <div class="product-price">
-                                                <span>${{home_ad_deal_time.PRDPrice}}</span>
+                                                {% comment %} Hide Price <span>${{home_ad_deal_time.PRDPrice}}</span>
                                                 {% if home_ad_deal_time.PRDDiscountPrice%}
                                                 <span class="old-price">${{home_ad_deal_time.PRDDiscountPrice}}</span>
-                                                {%endif %}
+                                                {%endif %} {% endcomment %}
                                             </div>
                                             <div class="add-cart">
                                                 <a class="add" href="{{home_ad_deal_time.ad_URL}}"><i class="fi-rs-shopping-cart mr-5"></i>View</a>
@@ -220,7 +220,7 @@
                         </div>
                         <div class="content pt-10">
                             <h6><a href="{% url 'products:product-details' new_product.PRDSlug%}">{{new_product.product_name|truncatechars:14}}</a></h6>
-                            <p class="price mb-0 mt-5">${{new_product.PRDPrice}}</p>
+                            {% comment %} Hide Price <p class="price mb-0 mt-5">${{new_product.PRDPrice}}</p> {% endcomment %}
                             <div class="product-rate">
                                 <div class="product-rating" style="width: 90%"></div>
                             </div>

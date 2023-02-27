@@ -72,7 +72,11 @@ window.onload = function () {
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"><span>$${product.PRDPrice}</span></div>
+                            <div class="col-lg-2 col-sm-2 col-4 col-price"><span>
+                            <!-- Hide Price
+                                                    
+                            -->
+                            </div>
                             <div class="col-lg-2 col-sm-2 col-4 col-status">
                                 <span class="badge rounded-pill ${alertStatus}">${productStatus}</span>
                             </div>

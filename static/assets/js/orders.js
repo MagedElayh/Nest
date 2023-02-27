@@ -50,7 +50,9 @@ window.onload = function () {
                             ordersList.innerHTML += `   <tr>
                             <td>#${order.id}</td>
                             <td>${d.toDateString()}</td>
-                            <td>$${amount} for 2 item</td>
+                            <td>
+                            
+                            </td>
                             
                             <td>${is_finished}</td>
                             <td></td>

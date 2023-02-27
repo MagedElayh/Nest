@@ -48,9 +48,9 @@
                                 </th> {% endcomment %}
                                 <th scope="col" class="pl-30" colspan="2">Product Details</th>
                                 <th scope="col">WEIGHT</th>
-                                <th scope="col">Unit Price</th>
+                                {% comment %} <th scope="col">Unit Price</th> {% endcomment %}
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Subtotal</th>
+                                {% comment %} <th scope="col">Subtotal</th> {% endcomment %}
                                 <th scope="col" class="end">Remove</th>
                             </tr>
                         </thead>
@@ -77,9 +77,15 @@
                                 <td class="price" data-title="Weight">
                                     <h4 class="text-brand">{{item.weight }}KG</h4>
                                 </td>
-                                <td class="price" data-title="Price">
-                                    <h4 class="text-body">{{request.session.currency }} {{item.price|currency:request.session.currency  }} </h4>
-                                </td>
+                                
+                                {% comment %} Hide Price
+                                    <td class="price" data-title="Price">
+
+                                        <h4 class="text-body">{{request.session.currency }} {{item.price|currency:request.session.currency  }} </h4> 
+                                        
+                                    </td>
+                                {% endcomment %}
+
                                 <td class="text-center detail-info" data-title="Stock">
                                     {% comment %} <div class="detail-extralink mr-15">
                                         <div class="detail-qty border radius">
@@ -91,9 +97,16 @@
                                     </div> {% endcomment %}
                                     <h4 class="text-body">{{item.quantity }}</h4>
                                 </td>
-                                <td class="price" data-title="Price">
-                                    <h4 class="text-brand">{{request.session.currency}} {% widthratio item.price|currency:request.session.currency  1 item.quantity%} </h4>
-                                </td>
+                                
+                                
+                                {% comment %} Hide Price
+                                    <td class="price" data-title="Price">
+                                        
+                                        <h4 class="text-brand">{{request.session.currency}} {% widthratio item.price|currency:request.session.currency  1 item.quantity%} </h4> 
+                                    
+                                    </td>
+                                {% endcomment %}
+
                                 <td class="action text-center" data-title="Remove"><a href="{% url "orders:remove-item" productdeatails_id=item.id %}" class="text-body"><i class="fi-rs-trash"></i></a></td>
                             </tr>
                          {%endfor%}   
@@ -191,14 +204,16 @@
                     <div class="table-responsive">
                         <table class="table no-border">
                             <tbody>
-                                <tr>
-                                    <td class="cart_total_label">
-                                        <h6 class="text-muted">Subtotal</h6>
-                                    </td>
-                                    <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">{{request.session.currency}} {{f_total|currency:request.session.currency}}</h4>
-                                    </td>
-                                </tr>
+                                {% comment %} Hide Price
+                                    <tr>
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Subtotal</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h4 class="text-brand text-end">{{request.session.currency}} {{f_total|currency:request.session.currency}}</h4>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
                                 <tr>
                                     <td class="cart_total_label">
                                         <h6 class="text-muted">Items</h6>
@@ -231,14 +246,18 @@
                                     </td>
                                 </tr>
                                 {%endif%}
-                                <tr>
-                                    <td class="cart_total_label">
-                                        <h6 class="text-muted">Total</h6>
-                                    </td>
-                                    <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">{{request.session.currency}}{{total|floatformat:"2"|currency:request.session.currency}}</h4>
-                                    </td>
-                                </tr>
+
+                                {% comment %} 
+                                    <tr> Hide Price
+                                        <td class="cart_total_label">
+                                            <h6 class="text-muted">Total</h6>
+                                        </td>
+                                        <td class="cart_total_amount">
+                                            <h4 class="text-brand text-end">{{request.session.currency}}{{total|floatformat:"2"|currency:request.session.currency}}</h4>
+                                        </td>
+                                    </tr> 
+                                {% endcomment %}
+                                
                             </tbody>
                         </table>
                     </div>

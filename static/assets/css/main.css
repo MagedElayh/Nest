@@ -9873,7 +9873,8 @@ footer .hotline {
 }
 
 footer .hotline img {
-  min-width: 10px;
+  /* min-width: 10px; */
+  margin: 8px;
   margin-right: 12px;
   max-width: 30px;
   opacity: 0.5;

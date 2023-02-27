@@ -67,7 +67,7 @@ window.onload = function () {
                         <td>#${order.id}</td>
                         <td><b>${order.email_client}</b></td>
                         <td>${order.weight}KG</td>
-                        <td>$${order.amount}</td>
+                        <td></td>
                         <td><span class="badge rounded-pill ${alertStatus}">${order.status}</span></td>
                         <td>${d.toDateString()}</td>
                         <td class="text-end">

@@ -122,11 +122,13 @@
                           </div>
                           <div><span class="font-small text-muted">Sold By <a href="{%url 'suppliers:vendor-details' product.product_vendor.slug %}">{{product.product_vendor}}</a></span></div>
                           <div class="product-card-bottom">
-                             <div class="product-price"><span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span> 
-                                {% if product.PRDDiscountPrice%}
-                                <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                {%endif%}
-                            </div>
+                            {% comment %} Hide Price
+                                <div class="product-price"><span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span> 
+                                    {% if product.PRDDiscountPrice%}
+                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                    {%endif%}
+                                </div> 
+                            {% endcomment %}
                              <div class="add-cart">
                                 <a class="add" href="{% url 'products:product-details' product.PRDSlug %}"><i class="fi-rs-eye mr-5"></i>View </a>
                              </div>
