@@ -92,10 +92,12 @@ window.onload = function () {
                                             
                                             </div>
                                             <div class="product-card-bottom">
-                                                <div class="product-price">
-                                                    <span>$${product.PRDPrice}</span>
-                                                    <span class="old-price">${discount}</span>
-                                                </div>
+                                                <!-- Hide Price
+                                                    <div class="product-price">
+                                                        <span>$${product.PRDPrice}</span>
+                                                        <span class="old-price">${discount}</span>
+                                                    </div>
+                                                -->
                                                 <div class="add-cart">
                                                     <a class="add" href="/product-details/${product.PRDSlug}"><i class="fi-rs-eye mr-5"></i>View </a>
                                                 </div>

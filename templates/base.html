@@ -313,7 +313,9 @@
 											</div>
 											<div class="shopping-cart-title">
 												<h4><a href="{% url 'products:product-details' order.product.PRDSlug %}">{{order.product.product_name|truncatechars:17}}</a></h4>
-												<h4><span>{{order.quantity}} × </span>${{order.price}}</h4>
+												<h4><span>{{order.quantity}} 
+													<!--  Hide Price           × </span>${{order.price}}-->
+												</h4>
 											</div>
 											<div class="shopping-cart-delete">
 												<a href="{% url 'orders:remove-item' order.id  %}"><i class="fi-rs-cross-small"></i></a>
@@ -322,11 +324,15 @@
 										{%endfor%}
 									</ul>
 									<div class="shopping-cart-footer">
-										<div class="shopping-cart-total">
-											{% if order_context.amount%}
-											 <h4>Total <span>${{order_context.amount}}</span></h4> 
-											{%endif%}
-										</div>
+
+										
+										<!--  Hide Price 
+											<div class="shopping-cart-total">
+												{% if order_context.amount%}
+												<h4>Total <span>${{order_context.amount}}</span></h4> 
+												{%endif%}
+											</div>
+										-->
 										<div class="shopping-cart-button">
 											<a href="{% url 'orders:cart'%}" class="outline">View cart</a>
 											<a href="{% url 'orders:cart'%}">Checkout</a>

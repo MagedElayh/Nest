@@ -156,7 +156,7 @@
                                     </div>
                                     <div class="product-card-bottom">
 
-
+                                        <!--  Hide The Price -->
                                         {% comment %} <div class="product-price">
                                             <span>{{request.session.currency}} {{product.PRDPrice|currency:request.session.currency}}</span>
                                             {%if product.PRDDiscountPrice%}
@@ -272,10 +272,14 @@
                                                 <div class="product-rating" style="width: {{product.feedbak_average}}%"></div>
                                             </div>
                                             <div class="product-price mt-10">
-                                                <span>${{product.PRDPrice|currency:request.session.currency}} </span>
+
+                                                <!--  Hide The Price -->
+                                                {% comment %} <span>${{product.PRDPrice|currency:request.session.currency}} </span>
                                                {%if product.PRDDiscountPrice%}
                                                 <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                                {%endif%}
+                                                {%endif%} {% endcomment %}
+
+
                                             </div>
                                             <div class="sold mt-15 mb-15">
                                                 {% comment %} <div class="progress mb-5">

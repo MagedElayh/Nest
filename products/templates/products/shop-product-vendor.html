@@ -140,13 +140,17 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <span class="current-price text-brand">{{request.session.currency}}{{product_detail.PRDPrice|currency:request.session.currency}}</span>
+
+                                                <button type="submit" class="button button-add-to-cart">Get Quotation</button>
+                                                
+                                                {% comment %} <span class="current-price text-brand">{{request.session.currency}}{{product_detail.PRDPrice|currency:request.session.currency}}</span>
                                                 <span>
-                                                    {% comment %} <span class="save-price font-md color3 ml-15">26% Off</span> {% endcomment %}
+                                                    <!--<span class="save-price font-md color3 ml-15">26% Off</span> -->
                                                     {% if product_detail.PRDDiscountPrice%}
                                                     <span class="old-price font-md ml-15">{{request.session.currency}}{{product_detail.PRDDiscountPrice|currency:request.session.currency}}</span>
                                                     {%endif%}
-                                                </span>
+                                                </span> {% endcomment %}
+
                                             </div>
                                         </div>
                                         <div class="short-desc mb-30">
@@ -183,6 +187,7 @@
                                                 <input type="hidden" value="{{product_detail.id}}" name="product_id">
                                                 <input type="hidden" value="{{product_detail.PRDPrice}}" name="product_Price">
                                                 <button type="submit" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                                <button style="margin-left:5px;" type="submit" class="button button-add-to-cart">Get Quotation</button>
                                             
                                                 {% comment %} <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                                 <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> {% endcomment %}
@@ -546,10 +551,14 @@
                                                         <span> </span>
                                                     </div>
                                                     <div class="product-price">
-                                                        <span>{{request.session.currency}}{{related_product.PRDPrice|currency:request.session.currency}} </span>
+
+                                                        <!--  Hide Price -->
+                                                        {% comment %} <span>{{request.session.currency}}{{related_product.PRDPrice|currency:request.session.currency}} </span>
                                                         {% if related_product.PRDDiscountPrice%}
                                                         <span class="old-price">{{request.session.currency}}{{related_product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                                        {%endif%}
+                                                        {%endif%} {% endcomment %}
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -604,10 +613,12 @@
                                                         <span> </span>
                                                     </div>
                                                     <div class="product-price">
-                                                        <span>{{request.session.currency}}{{supplier_Product.PRDPrice|currency:request.session.currency}}</span>
+
+                                                        <!--   Hide Price  -->
+                                                        {% comment %} <span>{{request.session.currency}}{{supplier_Product.PRDPrice|currency:request.session.currency}}</span>
                                                         {% if supplier_Product.PRDDiscountPrice%}
                                                         <span class="old-price">{{request.session.currency}}{{supplier_Product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                                        {%endif%}
+                                                        {%endif%} {% endcomment %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -706,7 +717,14 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h6><a href="{% url 'products:product-details' new_product.PRDSlug%}">{{new_product.product_name|truncatechars:14}}</a></h6>
-                                    <p class="price mb-0 mt-5">{{request.session.currency}} {{new_product.PRDPrice|currency:request.session.currency}}</p>
+                                    
+                                    
+                                    <!--  Hide Price  -->
+                                    {% comment %} 
+                                    <p class="price mb-0 mt-5">{{request.session.currency}} {{new_product.PRDPrice|currency:request.session.currency}}</p> 
+                                    {% endcomment %}
+                                    
+                                    
                                     <div class="product-rate">
                                         <div class="product-rating" style="width: {{new_product.feedbak_average}}%"></div>
                                     </div>

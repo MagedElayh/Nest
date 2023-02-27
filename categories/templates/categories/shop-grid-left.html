@@ -178,7 +178,14 @@
                             </div>
                             <div class="content pt-10">
                                 <h6><a href="{% url 'products:product-details' new_product.PRDSlug%}">{{new_product.product_name|truncatechars:14}}</a></h6>
-                                <p class="price mb-0 mt-5">${{new_product.PRDPrice}}</p>
+                                
+                                
+                                <!--   Hide Price   -->
+                                {% comment %} 
+                                <p class="price mb-0 mt-5">${{new_product.PRDPrice}}</p> 
+                                {% endcomment %}
+
+
                                 <div class="product-rate">
                                     <div class="product-rating" style="width: {{new_product.feedbak_average}}%"></div>
                                 </div>
