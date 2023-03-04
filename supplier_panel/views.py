@@ -171,6 +171,7 @@ def supplier_add_product(request):
 
         product_name = request.POST['product_name']
         introduction = request.POST['introduction']
+        product_type = request.POST['product_type']
         price = request.POST['price']
         discount = request.POST['discount']
         content = request.POST['content']
@@ -361,6 +362,7 @@ def supplier_add_product(request):
             product_name=product_name,
             product_description=introduction,
             content=content,
+            product_type=product_type,
             PRDPrice=price,
             PRDDiscountPrice=discount,
             product_image=main_image,
@@ -548,6 +550,7 @@ def supplier_edit_product(request, id):
             product_name = request.POST['product_name']
             introduction = request.POST['introduction']
             content = request.POST['content']
+            product_type = request.POST['product_type']
             price = request.POST['price']
             discount = request.POST['discount']
             # description = request.POST['description']
@@ -739,6 +742,10 @@ def supplier_edit_product(request, id):
             new_product_obj.product_name = product_name
             new_product_obj.product_description = introduction
             new_product_obj.content = content
+            new_product_obj.product_type = product_type
+            print("_____________________________")
+            print(product_type)
+            print("_____________________________")
             new_product_obj.PRDPrice = price
             new_product_obj.PRDDiscountPrice = discount
             if main_image:
