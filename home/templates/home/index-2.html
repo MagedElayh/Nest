@@ -112,6 +112,7 @@
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
                 <h3>Popular Products</h3>
             </div>
+           
             <!--End nav-tabs-->
             <div class="tab-content" id="myTabContent">
                 <!--start tab one-->
@@ -119,7 +120,7 @@
                     <div class="row product-grid-4">
                        {%for product in products|slice:"0:10"%}
                         <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                            <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".{{ forloop.counter0 }}s">
+                            <div class="card_body product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".{{ forloop.counter0 }}s">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{% url 'products:product-details' product.PRDSlug %}">
@@ -343,12 +344,13 @@
                                     <span class="font-small text-muted">By <a href="{%if home_ad_deal_time.supplier_URL %}{{home_ad_deal_time.supplier_URL}}{%else%} {%url 'suppliers:vendor-details' home_ad_deal_time.supplier.slug %}{%endif%}">{{home_ad_deal_time.supplier}}</a></span>
                                 </div>
                                 <div class="product-card-bottom">
+                                    <!-- Hide Price
                                     <div class="product-price">
                                         <span>{{request.session.currency}}{{home_ad_deal_time.PRDPrice|currency:request.session.currency}}</span>
                                         {% if home_ad_deal_time.PRDDiscountPrice%}
                                         <span class="old-price">{{request.session.currency}}{{home_ad_deal_time.PRDDiscountPrice|currency:request.session.currency}}</span>
                                         {%endif %}
-                                    </div>
+                                    </div>-->
                                     <div class="add-cart">
                                         <a class="add" href="{{home_ad_deal_time.ad_URL}}"><i class="fi-rs-shopping-cart mr-5"></i>View</a>
                                     </div>
@@ -386,10 +388,14 @@
                                     <span class="font-small ml-5 text-muted"> ({{product.feedbak_number}})</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
-                                    {%if product.PRDDiscountPrice%}
-                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                    {%endif%}
+                                    {% if product.product_type == "Service"%}
+                                    <span>Service</span>
+                                    {% else %}
+                                        <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                        {%if product.PRDDiscountPrice%}
+                                        <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                        {%endif%}
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
@@ -415,10 +421,14 @@
                                     <span class="font-small ml-5 text-muted"> ({{product.feedbak_number}})</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
-                                    {%if product.PRDDiscountPrice%}
-                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                    {%endif%}
+                                    {% if product.product_type == "Service"%}
+                                    <span>Service</span>
+                                    {% else %}
+                                        <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                        {%if product.PRDDiscountPrice%}
+                                        <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                        {%endif%}
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
@@ -444,10 +454,14 @@
                                     <span class="font-small ml-5 text-muted"> ({{product.feedbak_number}})</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
-                                    {%if product.PRDDiscountPrice%}
-                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                    {%endif%}
+                                    {% if product.product_type == "Service"%}
+                                    <span>Service</span>
+                                    {% else %}
+                                        <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                        {%if product.PRDDiscountPrice%}
+                                        <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                        {%endif%}
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
@@ -473,10 +487,14 @@
                                     <span class="font-small ml-5 text-muted"> ({{product.feedbak_number}})</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
-                                    {%if product.PRDDiscountPrice%}
-                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
-                                    {%endif%}
+                                    {% if product.product_type == "Service"%}
+                                    <span>Service</span>
+                                    {% else %}
+                                        <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                        {%if product.PRDDiscountPrice%}
+                                        <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                        {%endif%}
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
@@ -489,3 +507,9 @@
     <!--End 4 columns-->
 </main>
 {% endblock body%}
+
+{% block script1 %}
+
+  
+
+{% endblock script1 %}

@@ -72,7 +72,9 @@ window.onload = function () {
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-sm-2 col-4 col-price"><span>
+                            <div class="col-lg-2 col-sm-2 col-4 col-price">
+                            ${product.product_type}
+                            <span>
                             <!-- Hide Price
                                                     
                             -->

@@ -148,6 +148,24 @@ class Product(models.Model):
         default=New, blank=True, null=True,
     )
 
+
+    Old = 'Old'
+    Service = 'Service'
+
+    product_type_select = [
+        (New, 'New'),
+        (Old, 'Old'),
+        (Service, 'Service')
+
+    ]
+    product_type = models.CharField(
+        max_length=13,
+        choices=product_type_select,
+        default=New, blank=True, null=True,
+    )
+
+
+
     # PRDISNew = models.BooleanField(
     #     default=True,  verbose_name=_("New"))
     # PRDISHot = models.BooleanField(

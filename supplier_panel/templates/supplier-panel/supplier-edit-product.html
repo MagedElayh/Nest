@@ -34,43 +34,56 @@
                                </div>
                                <div class="card-body">
                                    
-                                       <div class="mb-4">
-                                           <label for="product_name" class="form-label">Product title</label>
-                                           <input value="{{product.product_name}}" type="text" name="product_name" maxlength="99"  placeholder="Type here" class="form-control" id="product_name" required/>
-                                       </div>
-                                       <div class="mb-4">
-                                           <label class="form-label">Description</label>
-                                           <textarea name="introduction" placeholder="Type here" class="ckeditor form-control" rows="4" required>{{product.product_description}}</textarea>
-                                       </div>
-                                       <div class="row">
-                                           <label class="form-check mb-4">
-                                               <input id="discounted" name="checkbox" class="form-check-input" type="checkbox" {% if product.PRDDiscountPrice%} checked {% endif%}/>
-                                               <span class="form-check-label">Product Has Discounts</span>
-                                           </label>
-                                           <div class="col-lg-4">
-                                               <div class="mb-4">
-                                                   <label class="form-label">Price</label>
-                                                   <div class="row gx-2">
-                                                       <input value="{{product.PRDPrice}}" placeholder="$" name="price" type="number"  step="0.01" min="0" class="form-control" required/>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                           <div id="discount_box" class="col-lg-4 {% if not product.PRDDiscountPrice%} not-visible {% endif%}">
-                                               <div class="mb-4">
-                                                   <label class="form-label"> Price before  discount</label>
-                                                   <input value="{{product.PRDDiscountPrice}}" placeholder="$" name="discount" type="number"  step="0.01" min="0"  class="form-control" />
-                                               </div>
-                                           </div>
-                                           <div class="col-lg-4">
-                                               <label class="form-label">Currency</label>
-                                               <select class="form-select">
-                                                   <option>USD</option>
-                                                 
-                                               </select>
-                                           </div>
-                                           
-                                       </div>
-                                       
+                                        <div class="mb-4">
+                                            <label for="product_name" class="form-label">Product title</label>
+                                            <input value="{{product.product_name}}" type="text" name="product_name" maxlength="99"  placeholder="Type here" class="form-control" id="product_name" required/>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="introduction" placeholder="Type here" class="ckeditor form-control" rows="4" required>{{product.product_description}}</textarea>
+                                        </div>
+
+                                        <!-- add type of product -->
+                                        <div class="row">
+                                            <div class="mb-4">
+                                                <label class="form-label">Product Type</label>
+                                                <select class="form-select" name="product_type" id="product-type-select">
+                                                    <option>New</option>
+                                                    <option>Old</option>
+                                                    <option>Service</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" id="price_col">
+                                            <label class="form-check mb-4">
+                                                <input id="discounted" name="checkbox" class="form-check-input" type="checkbox" {% if product.PRDDiscountPrice%} checked {% endif%}/>
+                                                <span class="form-check-label">Product Has Discounts</span>
+                                            </label>
+                                            <div class="col-lg-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label">Price</label>
+                                                    <div class="row gx-2">
+                                                        <input id="price" value="{{product.PRDPrice}}" placeholder="$" name="price" type="number"  step="0.01" min="0" class="form-control" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="discount_box" class="col-lg-4 {% if not product.PRDDiscountPrice%} not-visible {% endif%}">
+                                                <div class="mb-4">
+                                                    <label class="form-label"> Price before  discount</label>
+                                                    <input value="{{product.PRDDiscountPrice}}" placeholder="$" name="discount" type="number"  step="0.01" min="0"  class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label class="form-label">Currency</label>
+                                                <select class="form-select">
+                                                    <option>USD</option>
+                                                    
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                        
                                      
 
                                        {% comment %} <div class="mb-4">
@@ -78,20 +91,20 @@
                                            <textarea name="description" placeholder="Type here" class="form-control" rows="4"></textarea>
                                        </div> {% endcomment %}
 
-                                       <div class="row">
+                                       <div class="row" id="available_col">
                                           
                                            <div class="col-lg-4">
                                                <div class="mb-4">
                                                    <label class="form-label">Available</label>
                                                    <div class="row gx-2">
-                                                       <input value="{{product.available}}" placeholder="quantity in stock" name="available" type="number" class="form-control" min="0" required/>
+                                                       <input id="available" value="{{product.available}}" placeholder="quantity in stock" name="available" type="number" class="form-control" min="0" required/>
                                                    </div>
                                                </div>
                                            </div>
                                            <div id="discount_box" class="col-lg-4">
                                                <div class="mb-4">
                                                    <label class="form-label"> Pieces/Set</label>
-                                                   <input value="{{product.pieces}}"  placeholder="quantity for Pieces" name="pieces" type="number"  min="0"  class="form-control"required />
+                                                   <input id="pieces" value="{{product.pieces}}"  placeholder="quantity for Pieces" name="pieces" type="number"  min="0"  class="form-control"required />
                                                </div>
                                            </div>
                                            <div class="col-lg-4">
@@ -124,7 +137,7 @@
                                </div>
                                <div class="card-body">
                                
-                                       <div class="row">
+                                       <div class="row" id="dimention">
                                            <div class="col-lg-6">
                                                <div class="mb-4">
                                                    <label for="product_name" class="form-label">Width</label>
@@ -139,10 +152,10 @@
                                            </div>
                                        </div>
                                      <div class="row"> 
-                                       <div class="col-lg-4">
+                                       <div class="col-lg-4" id="weight_row">
                                            <div class="mb-4">
                                                <label class="form-label">Weight</label>
-                                               <input value="{{product.PRDWeight|floatformat}}" placeholder="gam" name="weight" type="text" class="form-control" required />
+                                               <input id="weight" value="{{product.PRDWeight|floatformat}}" placeholder="gam" name="weight" type="text" class="form-control" required />
                                            </div>
                                        </div>
                                        <div class="col-lg-4">
@@ -158,7 +171,7 @@
                                            </select>
                                        </div>
                                        
-                                       <div class="col-lg-4">
+                                       <div class="col-lg-4"  id="sku">
                                         <div class="mb-4">
                                             <label class="form-label">SKU</label>
                                             <input placeholder="Product SKU" value="{{product.PRDSKU}}" name="SKU" type="text" class="form-control" />
@@ -346,57 +359,59 @@
                                        
                                        <h5 class="mb-3">Product Variations</h5>
                                        <hr>
-                                       <h5 class="mb-3">Product Size</h5>
-                                       
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="XXS" value="XXS" id="product-cat" 
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "XXS"%} checked {% endif %}
-                                            {% endfor %}> 
-                                           <label class="form-check-label" for="product-cat"> XXS </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="XS" value="XS"id="product-cat1"
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "XS"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> XS </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="S" value="S" id="product-cat2" 
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "S"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> S </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="M" value="M" id="product-cat3"
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "M"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> M </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="L" value="L" id="product-cat4"
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "L"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> L </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="XL" value="XL" id="product-cat5"
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "XL"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> XL </label>
-                                       </div>
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" name="XXL" value="XXL" id="product-cat6"
-                                           {% for product_variation in  product_variations%}
-                                            {% if product_variation.name_variation == "XXL"%} checked {% endif %}
-                                            {% endfor %}>
-                                           <label class="form-check-label" for="product-cat"> XXL </label>
-                                       </div>
+                                        <div id="product_size">
+                                            <h5 class="mb-3">Product Size</h5>
+                                            
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="XXS" value="XXS" id="product-cat" 
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "XXS"%} checked {% endif %}
+                                                    {% endfor %}> 
+                                                <label class="form-check-label" for="product-cat"> XXS </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="XS" value="XS"id="product-cat1"
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "XS"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> XS </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="S" value="S" id="product-cat2" 
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "S"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> S </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="M" value="M" id="product-cat3"
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "M"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> M </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="L" value="L" id="product-cat4"
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "L"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> L </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="XL" value="XL" id="product-cat5"
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "XL"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> XL </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="XXL" value="XXL" id="product-cat6"
+                                                {% for product_variation in  product_variations%}
+                                                    {% if product_variation.name_variation == "XXL"%} checked {% endif %}
+                                                    {% endfor %}>
+                                                <label class="form-check-label" for="product-cat"> XXL </label>
+                                            </div>    
+                                        </div>
                                    </div>
                                
                                    <!-- row.// -->
@@ -411,6 +426,63 @@
 
 {%block script%}
 <script>
+    $(document).ready(function() {
+        var textValue = "{{ product.product_type }}";
+        //console.log(textValue);
+        $('#product-type-select').val(function() {
+          return $(this).find('option').filter(function() {
+            return $(this).text() === textValue;
+          }).val();
+        });
+        const product_type = document.getElementById("product-type-select")
+        const event = new Event('change');
+
+        // Trigger the "change" event on the select element
+        product_type.dispatchEvent(event);
+    });
+
+
+    const product_type = document.getElementById("product-type-select")
+    const event = new Event('change');
+
+    // Trigger the "change" event on the select element
+    product_type.dispatchEvent(event);
+    const price_col = document.getElementById("price_col");
+    const available_col = document.getElementById("available_col");
+    const price = document.getElementById("price");
+    const available = document.getElementById("available");
+    const pieces = document.getElementById("pieces");
+    const weight = document.getElementById("weight");
+    const dimention = document.getElementById("dimention");
+    const weight_row = document.getElementById("weight_row");
+    const sku = document.getElementById("sku");
+    const product_size = document.getElementById("product_size");
+
+    product_type.addEventListener('change', function() {
+        //console.log(product_type.value);
+
+        if (product_type.value === "Service") {
+            price_col.classList.add("not-visible");
+            available_col.classList.add("not-visible");
+            price.value = 0.00;
+            available.value = 0;
+            pieces.value = 0;
+            weight.value = 0;
+            dimention.classList.add("not-visible");
+            weight_row.classList.add("not-visible");
+            sku.classList.add("not-visible");
+            product_size.classList.add("not-visible");
+        } else {
+            price_col.classList.remove("not-visible");
+            available_col.classList.remove("not-visible");
+            dimention.classList.remove("not-visible");
+            weight_row.classList.remove("not-visible");
+            sku.classList.remove("not-visible");
+            product_size.classList.remove("not-visible");
+        }
+    });
+
+    
 
    var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png" , "zip" , "rar"];    
    function Validate(oForm) {

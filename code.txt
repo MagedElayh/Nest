@@ -1,0 +1,29 @@
+                                <!-- product type-->
+                                <div class="product-price">
+                                    {% if product.product_type == "Service" %}
+                                        <span> Service </span>
+                                    {% elif%}
+                                        <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                        {%if product.PRDDiscountPrice%}
+                                        <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                        {%endif%}
+                                    {% endif%}
+
+                                </div>
+
+
+
+                                <div class="product-price">
+                                    {% if product.product_type == "Service" %}
+                                        <span> Service </span>
+                                    {% elif%}
+                                    
+                                    {% endif%}
+
+                                </div>
+                                <div class="product-price">
+                                    <span>{{request.session.currency}}{{product.PRDPrice|currency:request.session.currency}}</span>
+                                    {%if product.PRDDiscountPrice%}
+                                    <span class="old-price">{{request.session.currency}}{{product.PRDDiscountPrice|currency:request.session.currency}}</span>
+                                    {%endif%}
+                                </div>
